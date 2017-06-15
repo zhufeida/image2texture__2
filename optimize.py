@@ -113,9 +113,9 @@ def optimize(content_targets, style_target, content_weight, style_weight,
 
                 iterations += 1
                 assert X_batch.shape[0] == batch_size
-                batch_phi = np.random.uniform(0, np.pi*2, size = (self.dp))
+                batch_phi = np.random.uniform(0, np.pi*2, size = 3)
                 feed_dict = {
-                   X_content:X_batch
+                   X_content:X_batch,
                    phi:batch_phi
                 }
 
@@ -132,7 +132,7 @@ def optimize(content_targets, style_target, content_weight, style_weight,
                 if should_print:
                     to_get = [style_loss, content_loss, tv_loss, loss, preds]
                     test_feed_dict = {
-                       X_content:X_batch
+                       X_content:X_batch,
                        phi:batch_phi
                     }
 
